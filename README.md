@@ -34,7 +34,7 @@ Method2 : To Run as Maven Project using Jenkins
 
 Install and set up Jenkins Fork the project to your account and change webdriver path in both TestClass and TestClass1. Configure to Jenkins as maven project and build the test.
 Method3 : To Run manually
-method 4:Through bat file run.bat
+method 4:Through bat file run.bat file
 
 Download all the below required jars and configure in buld path
 • Download and add Selenium Jars to the project build path Go to http://www.seleniumhq.org/download/ Download Selenium Client & WebDriver Language Bindings for Java and add to Java build path.
