@@ -24,7 +24,7 @@ public class TC_001_AccountRegistrationTest extends BaseClass{
 		logger.info("Clicked on Register Link.. ");
 		
 		AccountRegistrationPage regpage=new AccountRegistrationPage(driver);
-		// for log  purpose
+		// for log  purpose hfhh
 		logger.info("Providing customer details...");
 		regpage.setFirstName(randomeString().toUpperCase());
 		regpage.setLastName(randomeString().toUpperCase());
