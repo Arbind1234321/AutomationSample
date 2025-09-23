@@ -18,6 +18,8 @@ public class HomePage extends BasePage {
 
 	@FindBy(linkText = "Login") // Login link added in step5
 	WebElement linkLogin;
+	@FindBy(xpath="//span[normalize-space()='Shopping Cart']")
+	WebElement shopingKart;
 
 	public void clickMyAccount() {
 		lnkMyaccount.click();
@@ -31,5 +33,10 @@ public class HomePage extends BasePage {
 	{
 		linkLogin.click();
 	}
+	public void clickShopingKart()
+	{	 
+		shopingKart.click();	
+	}
+	
 
 }
