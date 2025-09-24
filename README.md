@@ -1,52 +1,123 @@
-# AutomationSample
-TestNG -Test automation framework developed using Java and Selenium with page object model. Developed as a Maven project that can be easily integrated with Jenkins and run the test.
+# 🚀 AutomationSample
 
-******About the project
+## 📖 Project Description
+**AutomationSample** is a **test automation framework** built using **Java, Selenium WebDriver, and TestNG**.  
+It follows the **Page Object Model (POM)** design pattern for maintainability and scalability.  
+The project uses **Maven** for dependency management and integrates seamlessly with **Jenkins** for CI/CD pipelines.  
 
-Test automation framework contains following packages and files as shown in the below image
+This framework is ideal for:  
+- Automating regression and smoke tests  
+- Practicing TestNG annotations, assertions, and data providers  
+- Learning Maven + Selenium + TestNG integration  
+- Generating detailed reports after execution  
 
-Project: Testing
+---
 
-Packages
+## 🏗 Project Structure
 
-pageObjects This package contains all the page classes for new user registration, user login, add expense, list categories, list expenses and edit user account. All the static methods that are defined in the each page class can be re used in test classes by importing the class to perform actions on web elements.
+AutomationSample/
+├── pom.xml # Maven configuration (dependencies, plugins)
+├── src
+│ ├── main
+│ │ └── java
+│ │ └── pageObjects # Page classes for UI elements (POM)
+│ └── test
+│ └── java
+│ └── testCase # TestNG test classes
+├── resources
+│ └── testng.xml # TestNG suite configuration
+└── test-output # Auto-generated reports (after execution)
 
-testCase. This package contains test classes where all the test cases are written using the methods that are defined in page classes to validate expense tracker end to end as per the user stories. These test classes read the input data like user name, password, category names and expense details to add that is provided in the DataProviderClass to perform actions.
+| Package / File | Purpose |
+|----------------|---------|
+| `pageObjects`  | Contains classes with locators and methods to interact with web pages. |
+| `testCase`     | Contains TestNG test scripts that use page objects. |
+| `testng.xml`   | Controls execution flow (suite level, groups, parallelism, etc.). |
+| `pom.xml`      | Defines dependencies (Selenium, TestNG, etc.). |
+| `test-output`  | Stores execution reports (`emailable-report.html`, `index.html`, etc.). |
 
-Xml files.
+---
 
-pom.xml Contains all the plugins and dependencies that are required to run the test as maven project. TestNG.xml is configured in this pom.xml to trigger the test.
-2.master.xml Contains the all class names that are to be triggered to run the complete suite of test cases.
+## 🚀 How to Run the Tests
 
-Test Output folders. Reports like emailable-report.html, index.html and testng-results.xml are generated under these folders once the test is run. These reports are very useful to analyze the test results and even to share the comprehensive results about the tests to higher management.
+### 🔹 Method 1: Run Locally with Maven
+```bash
+git clone https://github.com/Arbind1234321/AutomationSample.git
+cd AutomationSample
+mvn clean test
 
-Instructions to run the test automation:
+Method 2: Run via Jenkins
+Create a Maven job in Jenkins.
+Point it to the repo or local project.
+Add build step:
+mvn clean test
+Jenkins will execute the tests and generate reports.
+3: Run in IDE
+Import the project into Eclipse or IntelliJ IDEA.
+Right-click on testng.xml → Run As → TestNG Suite.
 
-Method1 : To Run as Maven Project locally
+🧪 Features
 
-Install and set up Java
+✅ Java + Selenium WebDriver + TestNG
 
-Install and set up Maven plugin
+✅ Page Object Model (POM)
 
-Clone the project and set webdriver path in both TestClass and TestClass1. Run as maven project. use below commands to run Navigate to the project main folder using terminal or cmd and type below commands mvn compile mvn test
+✅ Data-driven testing with @DataProvider
 
-Method2 : To Run as Maven Project using Jenkins
+✅ HTML & XML TestNG reports
 
-Install and set up Jenkins Fork the project to your account and change webdriver path in both TestClass and TestClass1. Configure to Jenkins as maven project and build the test.
-Method3 : To Run manually
-method 4:Through bat file run.bat file
+✅ Jenkins CI/CD ready
 
-Download all the below required jars and configure in buld path
-• Download and add Selenium Jars to the project build path Go to http://www.seleniumhq.org/download/ Download Selenium Client & WebDriver Language Bindings for Java and add to Java build path.
+✅ Extensible design for utility classes, listeners, and retry logic
 
-• Download and set Web driver for example geckodriver to invoke the Firefox browser.
+🛠 Requirements
 
-•TestNG set up Add TestNG plug in to eclipse: Use http://beust.com/eclipse to add TestNG plug in to eclipse.
+Java JDK (17 or later)
 
-Download and add TestNG and JCommander JAR files to the Java build path. Refer below links to download jar files
-https://mvnrepository.com/artifact/org.testng/testng/7.8.0  
-//Check for latest compatible versions if required
+Maven 3.x
 
-https://mvnrepository.com/artifact/com.beust/jcommander/1.69  
-//Check for latest compatible versions if required
-• Download the project, Update the webdriver path in both TestClass and TestClass1. Open the project using IDE and run the TestNG.xml as testng suite to obtain the results.
+Selenium & TestNG (managed via pom.xml)
+
+ChromeDriver / GeckoDriver installed or set in PATH
+
+📊 Reports
+
+After test execution, reports are available in test-output/:
+
+emailable-report.html
+
+index.html
+
+testng-results.xml
+
+ Test Code
+Example LoginPage (Page Object)
+public class LoginPage {
+    WebDriver driver;
+
+    @FindBy(id="username")
+    WebElement usernameInput;
+
+    @FindBy(id="password")
+    WebElement passwordInput;
+
+    @FindBy(id="loginBtn")
+    WebElement loginButton;
+
+    public LoginPage(WebDriver driver) {
+        this.driver = driver;
+        PageFactory.initElements(driver, this);
+    }
+
+    public void enterUsername(String username) {
+        usernameInput.sendKeys(username);
+    }
+
+    public void enterPassword(String password) {
+        passwordInput.sendKeys(password);
+    }
+
+    public void clickLogin() {
+        loginButton.click();
+    }
+}
