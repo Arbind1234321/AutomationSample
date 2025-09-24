@@ -28,6 +28,7 @@ AutomationSample/
 │ └── testng.xml # TestNG suite configuration
 └── test-output # Auto-generated reports (after execution)
 
+
 | Package / File | Purpose |
 |----------------|---------|
 | `pageObjects`  | Contains classes with locators and methods to interact with web pages. |
